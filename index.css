@@ -1,0 +1,78 @@
+/* Apply box-sizing to all elements, including padding and border in the total width/height */
+* {
+    box-sizing: border-box;
+}
+
+/* Style for the body of the HTML document */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* 100% of the viewport height */
+    overflow: hidden; /* Hide overflow content beyond the viewport */
+    margin: 0; /* Remove default margin */
+    background-image: linear-gradient(180deg, #b7cb56, #394b0b); /* Set background color */
+}
+
+/* Style for the container holding the panels */
+.container {
+    display: flex;
+    width: 90vw; /* 90% of the viewport width */
+}
+
+/* Style for individual panels */
+.panel {
+    background-size: auto 100%; /* Set background size to auto width and 100% height */
+    background-position: center; /* Center the background image */
+    height: 85vh; /* 85% of the viewport height */
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+    border-radius: 30px; /* Add rounded corners */
+    color: rgb(246, 147, 41); /* Text color */
+    cursor: pointer; /* Set cursor to pointer on hover */
+    flex: 0.5; /* Initial flex value for panel sizing */
+    margin: 10px; /* Add margin around each panel */
+    position: relative; /* Set positioning to relative for absolute positioning of child elements */
+    transition: flex 0.9s ease-in; /* Smooth transition for flex property */
+}
+
+/* Style for the heading within each panel */
+.panel h3 {
+    font-size: 20px; /* Set font size */
+    position: absolute; /* Position absolutely within the panel */
+    bottom: 40px; /* Set distance from the bottom */
+    left: 20px; /* Set distance from the left */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Font family */
+    margin: 0; /* Remove default margin */
+    opacity: 0; /* Initially set opacity to 0 for a fade-in effect */
+    font-weight: bold; /* Set font weight to bold */
+}
+
+/* Style for an active panel, expanding its flex value */
+.panel.active {
+    flex: 5; /* Expanded flex value for active panel */
+}
+
+/* Style for the heading within an active panel, adjusting opacity with transition */
+.panel.active h3 {
+    opacity: 1; /* Set opacity to 1 for the active panel heading */
+    transition: opacity 0.9s ease-in 0.9s; /* Smooth transition for opacity with a delay */
+}
+
+/* Media query for screens with a maximum width of 480 pixels */
+@media (max-width: 750px) {
+
+    body{
+        background-color: #212121;
+        background-image: none;
+    }
+
+    .container {
+        width: 100vw; /* Adjust container width to 100% of viewport width */
+    }
+
+    /* Hide specific panels on small screens */
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5) {
+        display: none;
+    }
+}
